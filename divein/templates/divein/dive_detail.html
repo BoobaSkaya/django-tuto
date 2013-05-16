@@ -1,0 +1,13 @@
+<h1> #{{ dive.pk }} : {{ dive }}</h1>
+
+<ul>
+	<li>date : {{ dive.date }}</li>
+    <li>duration : {{ dive.duration}}</li>
+    <li>depth : {{ dive.depth}}</li>
+    <li>club : {{ dive.club }}</li>
+    <li>spot : {{ dive.spot }}</li>
+    <li>created_by : {{ dive.created_by}}</li>
+    <li>created_date : {{ dive.created_date}}</li>
+    <li>divers : {% for dive_part in dive_parts %} {{ dive_part.diver }}{% if dive_part.leader%}(*){% endif %} {% endfor %}</li>
+    <li>tags : {% for tag in dive.tags.all %} {{ tag }} {% endfor %}</li>
+</ul>

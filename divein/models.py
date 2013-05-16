@@ -80,7 +80,7 @@ class Dive(models.Model):
     tags         = models.ManyToManyField(DiveTag, blank=True)
 
     def __unicode__(self):
-        return u'Dive {} [{}]'.format(self.spot, self.date)
+        return u'{} [{}]'.format(self.spot, self.date)
 
 class DivePart(models.Model):
     dive    = models.ForeignKey(Dive)
