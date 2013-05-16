@@ -27,8 +27,7 @@ class PollAdmin(admin.ModelAdmin):
 
 admin.site.register(Poll, PollAdmin)
 
-#Dive mgnt
-from divein.models import Diver,Level,Federation,Graduate,Club
+from divein.models import Diver,Level,Federation,Graduate,Club,Spot,Dive
 
 class DiverAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -44,6 +43,8 @@ admin.site.register(Diver, DiverAdmin)
 admin.site.register(Graduate)
 admin.site.register(Level)
 admin.site.register(Club)
+admin.site.register(Dive)
+admin.site.register(Spot)
 admin.site.register(Federation)
 
 admin.autodiscover()
