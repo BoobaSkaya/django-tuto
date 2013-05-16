@@ -23,7 +23,7 @@ class Club(models.Model):
     def __unicode__(self):
         return self.club
 
-class User(models.Model):
+class Diver(models.Model):
     first_name = models.CharField(max_length=50)
     last_name  = models.CharField(max_length=50)
     email      = models.EmailField()
@@ -34,7 +34,7 @@ class User(models.Model):
         return '{} {}'.format(self.first_name, self.last_name)
 
 class Graduate(models.Model):
-    user          = models.ForeignKey(User)
+    user          = models.ForeignKey(Diver)
     level         = models.ForeignKey(Level)
     date          = models.DateField('The graduate date')
     club          = models.ForeignKey(Club, blank=True)

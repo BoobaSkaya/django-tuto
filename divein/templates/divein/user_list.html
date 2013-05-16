@@ -1,0 +1,10 @@
+{% if user_list %}
+    <ul>
+    {% for user in user_list %}
+        <!-- Using url 'detail' will look in urls.py -->
+        <li><a href="{% url 'divein:diver' diver.id %}">{{ user }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No users are available.</p>
+{% endif %}

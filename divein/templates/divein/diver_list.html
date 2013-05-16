@@ -1,0 +1,10 @@
+{% if diver_list %}
+    <ul>
+    {% for diver in diver_list %}
+        <!-- Using url 'detail' will look in urls.py -->
+        <li><a href="{% url 'divein:diver' diver.id %}">{{ diver }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No diver are available.</p>
+{% endif %}

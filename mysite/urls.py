@@ -28,9 +28,9 @@ class PollAdmin(admin.ModelAdmin):
 admin.site.register(Poll, PollAdmin)
 
 #Dive mgnt
-from divein.models import User,Level,Federation,Graduate,Club
+from divein.models import Diver,Level,Federation,Graduate,Club
 
-class UserAdmin(admin.ModelAdmin):
+class DiverAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Personal', {'fields': ['first_name', 'last_name', 'email', 'birth_date']}),
         #('Diving'  , {'fields': ['levels']}),
@@ -40,7 +40,7 @@ class UserAdmin(admin.ModelAdmin):
     #list_filter    = ['levels']
 
 
-admin.site.register(User, UserAdmin)
+admin.site.register(Diver, DiverAdmin)
 admin.site.register(Graduate)
 admin.site.register(Level)
 admin.site.register(Club)
@@ -57,6 +57,7 @@ urlpatterns = patterns('',
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^polls/', include('polls.urls', namespace='polls')),
+    url(r'^admin/' , include(admin.site.urls)),
+    url(r'^polls/' , include('polls.urls' , namespace='polls')),
+    url(r'^divein/', include('divein.urls', namespace='divein')),
 )

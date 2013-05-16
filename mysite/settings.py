@@ -126,6 +126,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     #Add own apps here
     'polls',
+    'divein',
 )
 
 # A sample logging configuration. The only tangible logging
