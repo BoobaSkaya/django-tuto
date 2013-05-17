@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.views import generic
-from divein.models import Diver,Dive,DivePart
+from divein.models import Diver,Dive,DivePart,Spot
 
 def index(request):
     dives = Dive.objects.all()
@@ -12,8 +12,8 @@ class DiverListView(generic.ListView):
 class DiverDetailView(generic.DetailView):
     model = Diver
 
-class DiveDetailView(generic.DetailView):
-    model = Dive
+class SpotDetailView(generic.DetailView):
+    model = Spot
 
 def dive_detail(request, pk):
     dive 		= get_object_or_404(Dive, pk=pk)

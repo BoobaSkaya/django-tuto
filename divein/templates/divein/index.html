@@ -3,7 +3,7 @@
 <table border="1">
 	<tr><th>ID</th><th>Date</th><th>Spot</th></tr>
 	{% for dive in dives %}
-        <tr><th><a href="{% url 'divein:dive' dive.id %}">{{ dive.pk }}</a></th><th>{{ dive.date }}</th><th>{{ dive.spot }}</th></tr>
+        <tr><th><a href="{% url 'divein:dive' dive.id %}">{{ dive.pk }}</a></th><th>{{ dive.date }}</th><th><a href="{% url 'divein:spot' dive.spot.id %}">{{ dive.spot }}</a></th></tr>
     {% endfor %}
 </table>
 <ul>
