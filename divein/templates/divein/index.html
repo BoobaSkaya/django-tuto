@@ -1,10 +1,16 @@
+{% extends "divein/base.html" %}
 
-<h1>Last dives</h1>
-<table border="1">
-	<tr><th>ID</th><th>Date</th><th>Spot</th></tr>
-	{% for dive in dives %}
-        <tr><th><a href="{% url 'divein:dive' dive.id %}">{{ dive.pk }}</a></th><th>{{ dive.date }}</th><th><a href="{% url 'divein:spot' dive.spot.id %}">{{ dive.spot }}</a></th></tr>
+{% block title %}dive#{% endblock %}
+{% block content %}
+    <p class="alert">Ce site est en construction hein :)</p>
+    <h1>Dernières plongées:</h1>
+    {% for dive in dives %}
+    <p>
+        <ul class="dive">
+            <li><a href="{% url 'divein:dive' dive.id %}">{{ dive.pk }}</a></li>
+            <li>{{ dive.date }}</li>
+            <li><a href="{% url 'divein:spot' dive.spot.id %}">{{ dive.spot }}</a></li>
+        </ul>
+    </p>
     {% endfor %}
-</table>
-<ul>
-</ul>
+{% endblock %}

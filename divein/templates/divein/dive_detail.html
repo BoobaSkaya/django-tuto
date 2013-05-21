@@ -1,5 +1,8 @@
-<h1> #{{ dive.pk }} : {{ dive }}</h1>
+{% extends "divein/base.html" %}
 
+{% block title %}dive#{% endblock %}
+{% block content %}
+<h1> #{{ dive.pk }} : {{ dive }}</h1>
 <ul>
 	<li>date : {{ dive.date }}</li>
     <li>duration : {{ dive.duration}}</li>
@@ -11,3 +14,4 @@
     <li>divers : {% for dive_part in dive_parts %} {{ dive_part.diver }}{% if dive_part.leader%}(*){% endif %} {% endfor %}</li>
     <li>tags : {% for tag in dive.tags.all %} {{ tag }} {% endfor %}</li>
 </ul>
+{% endblock %}

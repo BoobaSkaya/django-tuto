@@ -1,3 +1,7 @@
+{% extends "divein/base.html" %}
+
+{% block title %}dive#{% endblock %}
+{% block content %}
 {% if diver_list %}
     <ul>
     {% for diver in diver_list %}
@@ -8,3 +12,4 @@
 {% else %}
     <p>No diver are available.</p>
 {% endif %}
+{% endblock %}

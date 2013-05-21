@@ -1,5 +1,8 @@
-<h1> {{ user.first_name }} {{ user.last_name }} </h1>
+{% extends "divein/base.html" %}
 
+{% block title %}dive#{% endblock %}
+{% block content %}
+<h1> {{ user.first_name }} {{ user.last_name }} </h1>
 <ul>
     <li>Name: {{ user.firstname }} {{ user.last_name }} {{ user }}</li>
     <li>Email: {{ user.email }}</li>
@@ -8,5 +11,4 @@
         <li>Level {{ forloop.counter }} : {{ lvl }}</li>
     {% endfor %} -->
 </ul>
-
-</form>
+{% endblock %}

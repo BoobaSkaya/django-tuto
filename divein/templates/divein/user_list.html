@@ -1,3 +1,7 @@
+{% extends "divein/base.html" %}
+
+{% block title %}dive#{% endblock %}
+{% block content %}
 {% if user_list %}
     <ul>
     {% for user in user_list %}
@@ -8,3 +12,4 @@
 {% else %}
     <p>No users are available.</p>
 {% endif %}
+{% endblock %}

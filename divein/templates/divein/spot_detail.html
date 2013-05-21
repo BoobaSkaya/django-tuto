@@ -1,3 +1,7 @@
+{% extends "divein/base.html" %}
+
+{% block title %}dive#{% endblock %}
+{% block content %}
 <h1> #{{ spot.pk }} : {{ spot }}</h1>
 
 <ul>
@@ -7,3 +11,4 @@
 	<li> max_depth: {{ spot.max_depth }} </li>
 	<li> gps: {{ spot.gps }} </li>
 </ul>
+{% endblock %}
