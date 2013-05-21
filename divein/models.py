@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
+from django.forms import ModelForm
 
 import urllib, hashlib
 
@@ -88,11 +89,19 @@ class Dive(models.Model):
     spot         = models.ForeignKey(Spot)
     created_by   = models.ForeignKey(Diver, related_name='+')
     created_date = models.DateField('Creation date')
-    divers       = models.ManyToManyField(Diver, through='DivePart', related_name='+')
+    divers       = models.ManyToManyField(Diver, through='DivePart', related_name='+', blank=True)
     tags         = models.ManyToManyField(DiveTag, blank=True)
 
     def __unicode__(self):
         return u'{} [{}]'.format(self.spot, self.date)
+
+class DiveForm(ModelForm):
+    class Meta:
+        model = Dive
+        #In the future, remove created_by and created_date
+        #exclude = ('created_by', 'created_date') 
+        # exclude m2m relation with through attribute. Don't know how to do it for now
+        exclude = ('divers') 
 
 class DivePart(models.Model):
     dive    = models.ForeignKey(Dive)
