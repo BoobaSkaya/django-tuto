@@ -31,15 +31,15 @@ from divein.models import Diver,Level,Federation,Graduate,Club,Spot,Dive,DiveTag
 
 class DiverAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Personal', {'fields': ['first_name', 'last_name', 'email', 'birth_date']}),
+        ('Personal', {'fields': ['user', 'birth_date']}),
         #('Diving'  , {'fields': ['levels']}),
     ]
     #What to display?
-    list_display = ('first_name', 'last_name')
+    
     #list_filter    = ['levels']
 
 
-admin.site.register(Diver, DiverAdmin)
+admin.site.register(Diver)
 admin.site.register(Graduate)
 admin.site.register(Level)
 admin.site.register(Club)
