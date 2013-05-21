@@ -67,7 +67,17 @@
             </p>
             <ul class="nav">
               <li><a href="{% url 'divein:divers'  %}">Plongeurs</a></li>
-              <li><a href="#divelog">DiveLog</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Plongée <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Ajouter une plongée</a></li>
+                  <li><a href="#">Voir mes plongées</a></li>
+                  <li class="divider"></li>
+                  <li class="nav-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
               <li><a href="#about"  >About</a></li>
             </ul>
           </div><!--/.nav-collapse -->
@@ -111,20 +121,8 @@
 
     <!-- Le javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster 
-    <script src="{% static "/static/bootstrap/js/jquery.js" }></script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-transition.js" }>  </script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-alert.js" }</script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-modal.js" }</script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-dropdown.js" }></script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-scrollspy.js" }</script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-tab.js" }> </script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-tooltip.js" }> </script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-popover.js" }> </script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-button.js" }>  </script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-collapse.js" }></script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-carousel.js" }></script>
-    <script src="{% static "/static/bootstrap/js/bootstrap-typeahead.js" }</script>-->
-
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="/static/bootstrap/js/jquery.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
   </body>
 </html>
