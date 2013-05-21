@@ -23,8 +23,7 @@ def dive_detail(request, pk):
     return render(request, 'divein/dive_detail.html', {'dive': dive, 'tags' : tags, 'dive_parts' : dive_parts})
 
 def profile(request):
-    #TDC
-    return render(request, 'divein/profile.html')
+    return render(request, 'divein/profile.html', {'gravatar' : request.user.diver.getGravatar(100)})
 
 def logoutv(request):
     logout(request)

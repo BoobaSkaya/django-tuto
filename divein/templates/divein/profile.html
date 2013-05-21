@@ -2,5 +2,14 @@
 
 {% block title %}dive#{% endblock %}
 {% block content %}
-    <h1>Profile de {{ user.username }}</h1>
+    
+    <h1>Profil de {{ user.username }}</h1>
+    <div class="span2">
+        <img src="{{ gravatar }}" alt="Gravatar" title="Gravatar"/>
+    </div>
+    <ul class="span6 unstyled">
+        <li><i class="icon-calendar" title="Date de naissance"></i> : {{ user.diver.birth_date }}</li>
+        <li><i class="icon-envelope" title="mail"></i> : <a href="mailto:{{ user.email }}">{{ user.email }}</a></li>
+    </ul>
+
 {% endblock %}
