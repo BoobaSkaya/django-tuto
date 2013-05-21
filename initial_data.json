@@ -1,0 +1,14 @@
+[
+    {"pk": 1, "model": "divein.federation", "fields": {"website": "http://ffessm.fr/", "federation": "FFESSM"}}, 
+    {"pk": 2, "model": "divein.federation", "fields": {"website": "http://padi.com/", "federation": "PADI"}}, 
+    {"pk": 1, "model": "divein.level", "fields": {"federation": 1, "level": "N1"}}, 
+    {"pk": 2, "model": "divein.level", "fields": {"federation": 1, "level": "N2"}}, 
+    {"pk": 3, "model": "divein.level", "fields": {"federation": 1, "level": "N3"}}, 
+    {"pk": 4, "model": "divein.level", "fields": {"federation": 1, "level": "N4"}},
+
+
+    {"pk": 1, "model": "auth.user", "fields": {"username": "booba", "first_name": "Nicolas", "last_name": "Rouviere", "is_active": true, "is_superuser": true, "is_staff": true, "last_login": "2013-05-16T06:36:23.891Z", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$10000$f6Nq7GU4Cjib$sBhMBY9q6VXA1S7vDYa6R9D2VDzw7Zp4kODBQa2w6Zo=", "email": "booba.skaya@gmail.com", "date_joined": "2013-05-16T06:35:23.960Z"}}, 
+    {"pk": 2, "model": "auth.user", "fields": {"username": "AnneLo", "first_name": "Anne Lo", "last_name": "To", "is_active": true, "is_superuser": false, "is_staff": false, "last_login": "2013-05-21T16:51:17.414Z", "groups": [], "user_permissions": [], "password": "pbkdf2_sha256$10000$fSklWKGskIdk$BMnltjVWoFasZMMrjT8L+uKNzyHFts1P5BAFeUA3ppg=", "email": "annelo@gmail.com", "date_joined": "2013-05-21T16:51:17.414Z"}},
+    {"pk": 1, "model": "divein.diver", "fields": {"birth_date": "1980-06-10", "friends": [], "user": 1}}, 
+    {"pk": 2, "model": "divein.diver", "fields": {"birth_date": "1983-07-26", "friends": [], "user": 2}}
+]
