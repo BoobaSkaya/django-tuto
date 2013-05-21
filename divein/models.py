@@ -1,4 +1,8 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.conf import settings
+
+import urllib, hashlib
 
 class Federation(models.Model):
     federation = models.CharField('Federation name'    , max_length=50)
@@ -23,15 +27,23 @@ class Club(models.Model):
         return self.club
 
 class Diver(models.Model):
-    first_name = models.CharField(max_length=50)
-    last_name  = models.CharField(max_length=50)
-    email      = models.EmailField()
+    #Do not refer directly User since it can change
+    #User settings.AUTH_USER_MODEL instead
+    user       = models.OneToOneField(settings.AUTH_USER_MODEL) 
     birth_date = models.DateField('birth_date')
     levels     = models.ManyToManyField(Level, through='Graduate')
-    friends    = models.ManyToManyField('self') # self refer to Diver class, not current instance
+    # self refer to Diver class, not current instance
+    friends    = models.ManyToManyField('self', blank=True)
 
     def __unicode__(self):
-        return '{} {}'.format(self.first_name, self.last_name)
+        return u'{}'.format(self.user.username)
+
+    def getGravatar(self, size=40):
+        default = "http://www.example.com/default.jpg"
+        gravatar_url = "http://www.gravatar.com/avatar/"
+        gravatar_url += hashlib.md5(self.user.email.lower()).hexdigest() + "?"
+        gravatar_url += urllib.urlencode({'d':default, 's':str(size)})
+        return gravatar_url
 
 class Graduate(models.Model):
     diver         = models.ForeignKey(Diver)
