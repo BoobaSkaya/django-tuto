@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.conf import settings
-from django.forms import ModelForm
+
 
 import urllib, hashlib
 
@@ -63,7 +63,7 @@ class Spot(models.Model):
     gps      = models.CharField('GPS location'     ,max_length=200, blank = True)
     
     def __unicode__(self):
-        return u'{}({})'.format(self.name, self.city)
+        return u'{}'.format(self.name)
 
 class SpotComment(models.Model):
     text    = models.CharField('Comment', max_length=1000)
@@ -95,13 +95,6 @@ class Dive(models.Model):
     def __unicode__(self):
         return u'{} [{}]'.format(self.spot, self.date)
 
-class DiveForm(ModelForm):
-    class Meta:
-        model = Dive
-        #In the future, remove created_by and created_date
-        #exclude = ('created_by', 'created_date') 
-        # exclude m2m relation with through attribute. Don't know how to do it for now
-        exclude = ('divers') 
 
 class DivePart(models.Model):
     dive    = models.ForeignKey(Dive)

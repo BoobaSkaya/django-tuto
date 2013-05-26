@@ -1,0 +1,13 @@
+{% extends "divein/base.html" %}
+
+{% block title %}dive#add dive to spot {{ spot.id }}{% endblock %}
+{% block content %}
+
+on ajoute une plongée à {{ spot }}?
+
+<form action="{% url 'divein:spot_add_dive' spot.id %}" method="post">{% csrf_token %}
+{{ form.as_table}}
+<br/>
+<input type="submit" value="Submit" />
+</form>
+{% endblock %}

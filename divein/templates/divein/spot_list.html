@@ -1,0 +1,21 @@
+{% extends "divein/base.html" %}
+
+{% block title %}dive#{% endblock %}
+{% block content %}
+{% if spot_list %}
+    <table class="table table-striped">
+        <tr><th>+1</th><th>Spot</th><th>Ville</th><th>Prof Max</th></tr>
+        {% for spot in spot_list %}
+        <tr>
+        <td><a href="{% url 'divein:spot_add_dive' spot.id %}" title="Ajouter une plongée sur ce spot" class="btn btn-success"><i class="icon-plus-sign icon-white"/> </a></td>
+        <td><a href="{% url 'divein:spot' spot.id %}">{{ spot }}</a></td>
+        <td>{{ spot.city }}</td>
+        <td>{{ spot.max_depth }}</td>
+        </tr>
+        {% endfor %}
+    <caption>La liste des spots de plongée</caption>
+    </table>
+{% else %}
+    <p>No spots are available.</p>
+{% endif %}
+{% endblock %}
