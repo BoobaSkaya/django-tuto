@@ -3,14 +3,15 @@
 {% block title %}dive#{% endblock %}
 {% block content %}
     <p class="alert">Ce site est en construction hein :)</p>
-    <h1>Dernières plongées:</h1>
-    {% for dive in dives %}
-    <p>
-        <ul class="dive">
-            <li><a href="{% url 'divein:dive' dive.id %}">{{ dive.pk }}</a></li>
-            <li>{{ dive.date }}</li>
-            <li><a href="{% url 'divein:spot' dive.spot.id %}">{{ dive.spot }}</a></li>
-        </ul>
-    </p>
-    {% endfor %}
+    <table class="table  table-striped">
+        <tr><th>#</th><th>Date</th><th>Spot</th></tr>
+        {% for dive in dives %}
+            <tr>
+                <td><a href="{% url 'divein:dive' dive.id %}">{{ dive.pk }}</a></td>
+                <td>{{ dive.date }}</td>
+                <td><a href="{% url 'divein:spot' dive.spot.id %}">{{ dive.spot.name }}</a></td>    
+            </tr>
+        {% endfor %}
+        <caption>Les dernières plongées</caption>
+    </table>
 {% endblock %}
